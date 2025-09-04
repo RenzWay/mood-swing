@@ -1,6 +1,12 @@
 @import "tailwindcss";
 @import "./loading.css";
 /* @import "./base.css"; */
+
+:root {
+  --bluis: #a2d2ff;
+  --glass: #ffffff33;
+}
+
 h1 {
   font-size: 2.25rem; /* 36px */
   font-weight: bold;

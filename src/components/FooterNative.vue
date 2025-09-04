@@ -1,11 +1,12 @@
 <script setup>
 import { addMood, getMood } from "@/model/model";
-import { HomeIcon, PlusIcon, User2Icon } from "lucide-vue-next";
+import { HomeIcon, PlusIcon, History, ChartArea } from "lucide-vue-next";
 import { ref } from "vue";
 import { NModal, NForm, NInput, NSelect, NDatePicker, NButton } from "naive-ui";
 import { RouterLink } from "vue-router";
+import { useMoodStore } from "@/model/counterStore";
 
-let showModal = ref(false);
+let showModal = useMoodStore();
 let showAlert = ref(false);
 let moodText = ref("");
 let moodType = ref(null);
@@ -34,24 +35,25 @@ async function saveMood() {
   await addMood(col);
   await getMood();
   // reset & close
-  showModal.value = false;
+  showModal.closeModal();
   moodText.value = "";
   moodType.value = null;
   moodDate.value = Date.now();
   showAlert.value = false;
 }
-
-function closeModal() {
-  showModal.value = false;
-  showAlert.value = false; // reset alert
-}
 </script>
 
 <template>
   <n-modal
-    v-model:show="showModal"
+    v-model:show="showModal.showModal"
     preset="card"
-    style="max-width: 400px"
+    style="
+      max-width: 400px;
+      border-radius: 10px;
+      backdrop-filter: blur(5px);
+      -webkit-backdrop-filter: blur(5px);
+      background-color: rgba(162, 210, 255, 0.3);
+    "
     title="🌈 What's Your Mood?"
     :mask-closable="false"
     @update:show="
@@ -88,15 +90,13 @@ function closeModal() {
     </n-form>
     <template #footer>
       <div style="display: flex; justify-content: flex-end; gap: 8px">
-        <n-button @click="closeModal">Cancel</n-button>
+        <n-button type="error" @click="showModal.closeModal">Cancel</n-button>
         <n-button type="primary" @click="saveMood">Save</n-button>
       </div>
     </template>
   </n-modal>
 
-  <footer
-    class="bg-[#A2D2FF] p-4 rounded-2xl w-full md:w-[60%] lg:w-[75%] m-auto"
-  >
+  <footer class="p-4 rounded-2xl w-full md:w-[60%] lg:w-[75%] m-auto">
     <section class="flex justify-between">
       <n-popover trigger="hover">
         <template #trigger>
@@ -113,7 +113,7 @@ function closeModal() {
       <n-popover trigger="hover">
         <template #trigger>
           <button
-            @click="showModal = true"
+            @click="showModal.openModal"
             class="icon-footer plus bg-cyan-400 rounded-xl p-2.5"
           >
             <PlusIcon color="white" :size="25"></PlusIcon>
@@ -125,13 +125,25 @@ function closeModal() {
       <n-popover>
         <template #trigger>
           <RouterLink
-            to="/about"
-            class="icon-footer user bg-pink-400 rounded-xl p-2.5"
+            to="/analytic"
+            class="icon-footer analytic bg-pink-400 rounded-xl p-2.5"
           >
-            <User2Icon color="white" :size="25"></User2Icon>
+            <ChartArea color="white" :size="25"></ChartArea>
           </RouterLink>
         </template>
-        <span>I don't know</span>
+        <span>Analytic</span>
+      </n-popover>
+
+      <n-popover>
+        <template #trigger>
+          <RouterLink
+            to="/history"
+            class="icon-footer history bg-gray-400 rounded-xl p-2.5"
+          >
+            <History color="white" :size="25"></History>
+          </RouterLink>
+        </template>
+        <span>History</span>
       </n-popover>
     </section>
   </footer>
@@ -143,8 +155,11 @@ footer {
   bottom: 1em;
   left: 50%;
   transform: translateX(-50%);
+  /* border: 1px solid #a2d2ff; */
   z-index: 50;
-
+  background: rgba(162, 210, 255, 0.3);
+  backdrop-filter: blur(3px);
+  -webkit-backdrop-filter: blur(3px);
   animation: appear 1.5s ease-in-out;
 }
 
@@ -157,6 +172,10 @@ footer {
     transform: translateX(-50%) translateY(0);
     opacity: 1;
   }
+}
+
+.plus {
+  transform: translateY(-5px) scale(1.1);
 }
 
 .icon-footer {
@@ -181,7 +200,11 @@ footer {
   transform: scale(0.85) rotate(-80deg);
 }
 
-.icon-footer.user:active {
+.icon-footer.analytic:active {
   transform: scale(0.85) rotate(10deg);
+}
+
+.icon-footer.history:active {
+  transform: scale(0.85) rotate(-20deg);
 }
 </style>
