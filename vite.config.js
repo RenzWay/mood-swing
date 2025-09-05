@@ -38,24 +38,22 @@ export default defineConfig({
         ],
         screenshots: [
           {
-            src: "/ss/s1.jpg",
+            src: "/ss/s1.png",
             form_factor: "narrow",
+            type: "image/png",
             label: "Home page - Your mood dashboard",
           },
           {
-            src: "/ss/s2.jpg",
+            src: "/ss/s2.png",
             form_factor: "narrow",
+            type: "image/png",
             label: "Add new mood entry",
           },
           {
-            src: "/ss/s3.jpg",
+            src: "/ss/s3.png",
             form_factor: "narrow",
+            type: "image/png",
             label: "Mood history and analytics",
-          },
-          {
-            src: "/ss/s4.jpg",
-            form_factor: "narrow",
-            label: "Profile and settings page",
           },
           {
             src: "/ss/addswing.png",

@@ -329,7 +329,7 @@ const parseDate2 = (date) => {
       </div>
     </section>
 
-    <footer class="py-10 text-center"><p>hanam</p></footer>
+    <footer class="py-10 text-center text-white"><p>hanam</p></footer>
   </main>
 </template>
 
