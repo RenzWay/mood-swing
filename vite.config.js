@@ -21,41 +21,58 @@ export default defineConfig({
         short_name: "Mowing",
         description: "web optimaze something jus get it though",
         theme_color: "#1BE7FF",
+        background_color: "#ffffff",
+        display: "standalone",
+        start_url: "/",
         icons: [
           {
             src: "/mood.png",
             sizes: "192x192",
             type: "image/png",
+            purpose: "any",
           },
           {
             src: "/mood.png",
             sizes: "512x512",
             type: "image/png",
+            purpose: "maskable",
           },
         ],
         screenshots: [
           {
             src: "/ss/s1.png",
+            sizes: "390x844",
+            type: "image/png",
             form_factor: "narrow",
           },
           {
             src: "/ss/s2.png",
+            sizes: "390x844",
+            type: "image/png",
             form_factor: "narrow",
           },
           {
             src: "/ss/s3.png",
+            sizes: "390x844",
+            type: "image/png",
             form_factor: "narrow",
           },
           {
             src: "/ss/s4.png",
+            sizes: "390x844",
+            type: "image/png",
             form_factor: "narrow",
           },
           {
             src: "/ss/addswing.png",
+            sizes: "1280x720",
+            type: "image/png",
             form_factor: "wide",
           },
           {
             src: "/ss/homeswing.png",
+            sizes: "1280x720",
+            type: "image/png",
             form_factor: "wide",
           },
         ],
