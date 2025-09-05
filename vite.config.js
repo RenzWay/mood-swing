@@ -40,27 +40,27 @@ export default defineConfig({
         ],
         screenshots: [
           {
-            src: "/ss/s1.png",
+            src: "/ss/s1.jpg",
             sizes: "390x844",
-            type: "image/png",
+            type: "image/jpeg",
             form_factor: "narrow",
           },
           {
-            src: "/ss/s2.png",
+            src: "/ss/s2.jpg",
             sizes: "390x844",
-            type: "image/png",
+            type: "image/jpeg",
             form_factor: "narrow",
           },
           {
-            src: "/ss/s3.png",
+            src: "/ss/s3.jpg",
             sizes: "390x844",
-            type: "image/png",
+            type: "image/jpeg",
             form_factor: "narrow",
           },
           {
-            src: "/ss/s4.png",
+            src: "/ss/s4.jpg",
             sizes: "390x844",
-            type: "image/png",
+            type: "image/jpeg",
             form_factor: "narrow",
           },
           {
