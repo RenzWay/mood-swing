@@ -39,25 +39,21 @@ export default defineConfig({
         screenshots: [
           {
             src: "/ss/s1.jpg",
-            sizes: "390x844",
             form_factor: "narrow",
             label: "Home page - Your mood dashboard",
           },
           {
             src: "/ss/s2.jpg",
-            sizes: "390x844",
             form_factor: "narrow",
             label: "Add new mood entry",
           },
           {
             src: "/ss/s3.jpg",
-            sizes: "390x844",
             form_factor: "narrow",
             label: "Mood history and analytics",
           },
           {
             src: "/ss/s4.jpg",
-            sizes: "390x844",
             form_factor: "narrow",
             label: "Profile and settings page",
           },
