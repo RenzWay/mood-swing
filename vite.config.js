@@ -33,6 +33,32 @@ export default defineConfig({
             type: "image/png",
           },
         ],
+        screenshots: [
+          {
+            src: "/ss/s1.png",
+            form_factor: "narrow",
+          },
+          {
+            src: "/ss/s2.png",
+            form_factor: "narrow",
+          },
+          {
+            src: "/ss/s3.png",
+            form_factor: "narrow",
+          },
+          {
+            src: "/ss/s4.png",
+            form_factor: "narrow",
+          },
+          {
+            src: "/ss/addswing.png",
+            form_factor: "wide",
+          },
+          {
+            src: "/ss/homeswing.png",
+            form_factor: "wide",
+          },
+        ],
       },
       workbox: {
         skipWaiting: true,
